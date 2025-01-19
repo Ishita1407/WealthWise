@@ -1,0 +1,64 @@
+.investment-calculator {
+    font-family: "Roboto", sans-serif;
+    width: 650px;
+    margin: 24px auto;
+    background: #fff;
+    box-shadow: 0 12px 50px -11px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    color: #14213d;
+    overflow: hidden;
+    padding: 16px;
+  }
+  
+  .investment-calculator .top {
+    background: #14213d;
+    color: white;
+    padding: 32px;
+  }
+  
+  .investment-calculator .top h2 {
+    margin: 0;
+  }
+  
+  .investment-calculator form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .group {
+    flex: 1 1 calc(50% - 10px);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .group input {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+  }
+  
+  .result .left {
+    width: 100%;
+  }
+  
+  .result .value {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .calculate-btn {
+    background: #e63946;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  

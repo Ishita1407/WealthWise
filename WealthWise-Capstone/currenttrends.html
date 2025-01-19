@@ -1,0 +1,124 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Market News</title>
+    <style>
+        /* Basic Styles for the Page */
+        body
+        
+        
+         {
+            
+            
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url('/WealthWise-Capstone-Review-II-Ishita/BlueGreenBg.jpg'); /* Add your background image here */
+            background-size: cover; /* Ensures the image covers the entire page */
+            background-position: center; /* Centers the image */
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .news-links {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Share Market News</h1>
+    </header>
+
+    <section class="news-links">
+        <h2>Latest News</h2>
+        <ul id="news-list">
+            <!-- News links will be populated here by JavaScript -->
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; WealthWise. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to dynamically add the news links from the NewsAPI
+        document.addEventListener("DOMContentLoaded", function() {
+            const apiKey = 'faa23a59325347c4b849b0ca774a06dc';  // Replace with your NewsAPI key
+            const newsList = document.getElementById("news-list");
+
+            // Fetch latest stock market news
+            fetch(`https://newsapi.org/v2/everything?q=stock%20market&apiKey=${apiKey}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.articles) {
+                        data.articles.forEach(article => {
+                            const listItem = document.createElement("li");
+                            const anchor = document.createElement("a");
+                            anchor.href = article.url;
+                            anchor.textContent = article.title;
+                            anchor.target = "_blank"; // Open in a new tab
+                            listItem.appendChild(anchor);
+                            newsList.appendChild(listItem);
+                        });
+                    }
+                })
+                .catch(error => console.error('Error fetching news:', error));
+        });
+    </script>
+
+</body>
+</html>

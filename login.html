@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WealthWise - Login/Signup</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="background-container">
+        <!-- Finance-themed background image -->
+        <img src="BlueGreenBg.jpg" alt="Finance Background" class="background-image">
+    </div>
+    
+    <div class="container">
+        <!-- Finance stickers/icons -->
+        <div class="finance-stickers">
+            <img src="sticker1.png" alt="Chart Icon" class="sticker">
+            <img src="sticker2.png" alt="Coin Icon" class="sticker">
+            <img src="sticker3.png" alt="Money Icon" class="sticker">
+        </div>--!>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <div class="form-wrapper sign-up active">
+                <h2>Create Account</h2>
+                <form>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <p>Already have an account? <a id="switch-to-login" href="#">Login here</a></p>
+            </div>
+
+            <div class="form-wrapper login">
+                <h2>Login</h2>
+                <form>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p>Don't have an account? <a id="switch-to-signup" href="#">Sign up here</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

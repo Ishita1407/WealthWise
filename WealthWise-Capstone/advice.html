@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Financial Advice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            background-image: url('/WealthWise-Capstone-Review-II-Ishita/BlueGreenBg.jpg'); /* Add your background image here */
+            background-size: cover; /* Ensures the image covers the entire page */
+            background-position: center; /* Centers the image */
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .advice {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e9f7ef;
+            border-left: 5px solid #28a745;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personalized Financial Advice</h1>
+        <form id="adviceForm">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" max="100" required>
+
+            <label for="income">Monthly Income (in INR):</label>
+            <input type="number" id="income" name="income" required>
+
+            <label for="savings">Current Savings (in INR):</label>
+            <input type="number" id="savings" name="savings" required>
+
+            <label for="goal">Financial Goal:</label>
+            <select id="goal" name="goal" required>
+                <option value="">Select your goal</option>
+                <option value="investment">Investment</option>
+                <option value="saving_plan">Savings Plan</option>
+                <option value="budgeting">Budgeting Strategies</option>
+                <option value="retirement">Retirement Planning</option>
+                <option value="education">Education Savings</option>
+            </select>
+
+            <label for="risk">Risk Tolerance:</label>
+            <select id="risk" name="risk" required>
+                <option value="">Select your risk tolerance</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <button type="button" onclick="generateAdvice()">Get Advice</button>
+        </form>
+
+        <div id="adviceSection" class="advice" style="display: none;"></div>
+    </div>
+
+    <script>
+        function generateAdvice() {
+            const age = parseInt(document.getElementById('age').value);
+            const income = parseInt(document.getElementById('income').value);
+            const savings = parseInt(document.getElementById('savings').value);
+            const goal = document.getElementById('goal').value;
+            const risk = document.getElementById('risk').value;
+            const adviceSection = document.getElementById('adviceSection');
+
+            if (!age || !income || !savings || !goal || !risk) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            let advice = "";
+
+            if (goal === 'investment') {
+                if (income < 50000) {
+                    advice = `With a monthly income of INR ${income}, focus on SIPs (Systematic Investment Plans) in mutual funds to start building your investment portfolio. Consider low-risk index funds.`;
+                } else if (income >= 50000 && income <= 100000) {
+                    advice = `With a steady income of INR ${income}, explore diversified mutual funds and blue-chip stocks. Allocate 10-15% of income to high-growth opportunities.`;
+                } else {
+                    advice = `With a higher income of INR ${income}, consider diversifying across equity, bonds, and alternative investments like REITs. Focus on long-term growth assets.`;
+                }
+            } else if (goal === 'saving_plan') {
+                if (savings < 50000) {
+                    advice = `Your current savings of INR ${savings} is a good start. Aim to save at least 20% of your monthly income (${income}) to build an emergency fund of 6-9 months' expenses.`;
+                } else {
+                    advice = `With savings of INR ${savings}, you are on track. Consider opening a recurring deposit or a high-interest savings account to maximize your savings growth.`;
+                }
+            } else if (goal === 'budgeting') {
+                advice = `At age ${age}, budgeting is crucial. Track your expenses using apps or spreadsheets. Follow the 50-30-20 rule: 50% for essentials, 30% for discretionary spending, and 20% for savings.`;
+            } else if (goal === 'retirement') {
+                if (age < 40) {
+                    advice = `Start early! Contribute to NPS (National Pension Scheme) or PPF (Public Provident Fund). Aim to save 10-15% of your income (${income}) monthly for compounding benefits.`;
+                } else {
+                    advice = `At age ${age}, prioritize retirement planning. Maximize contributions to EPF, PPF, or pension funds to ensure a secure post-retirement life.`;
+                }
+            } else if (goal === 'education') {
+                advice = `With savings of INR ${savings}, explore child education plans or SIPs to save for education. Ensure your plan aligns with inflation and future costs.`;
+            }
+
+            adviceSection.style.display = 'block';
+            adviceSection.innerHTML = `<h3>Your Personalized Advice:</h3><p>${advice}</p>`;
+        }
+    </script>
+</body>
+</html>

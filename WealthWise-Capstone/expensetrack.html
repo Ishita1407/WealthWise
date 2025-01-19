@@ -1,0 +1,112 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="./expensetracker.css" />
+    <style>
+      /* Inline background image from local folder */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url('/WealthWise-Capstone-Review-II-Ishita/BlueGreenBg.jpg'); /* Relative path to your image in 'images' folder */
+        background-size: cover; /* Ensures the image covers the entire page */
+        background-position: center;
+        background-attachment: fixed; /* Keeps the background fixed during scroll */
+        color: black; /* Makes text white for better visibility */
+      }
+
+      .background-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1; /* Puts the background behind other elements */
+      }
+
+      /* Optional: Adjust the appearance of the form to stand out against the background */
+      main {
+        background-color: white; 
+        padding: 20px;
+        border-radius: 8px;
+        width: 80%;
+        margin: auto;
+        max-width: 900px;
+        margin-top: 50px;
+      }
+    </style>  
+  </head>
+  <body>
+    <div class="background-container"></div>
+
+    <h1>Expense Tracker</h1>
+
+    <main>
+      <header>
+        <div>
+          <h5>Total Balance</h5>
+          <span id="balance">$0.00</span>
+        </div>
+        <div>
+          <h5>Income</h5>
+          <span id="income">$0.00</span>
+        </div>
+        <div>
+          <h5>Expense</h5>
+          <span id="expense">$0.00</span>
+        </div>
+      </header>
+
+      <section>
+        <h3>Transactions</h3>
+        <ul id="transactionList"></ul>
+        <div id="status"></div>
+      </section>
+
+      <section>
+        <h3>Add Transaction</h3>
+
+        <form id="transactionForm">
+          <div>
+            <label for="type">
+              <input type="checkbox" name="type" id="type" />
+              <div class="option">
+                <span>Expense</span>
+                <span>Income</span>
+              </div>
+            </label>
+          </div>
+          <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" required />
+          </div>
+          <div>
+            <label for="amount">Amount</label>
+            <input
+              type="number"
+              name="amount"
+              value="0"
+              min="0.01"
+              step="0.01"
+              required
+            />
+          </div>
+          <div>
+            <label for="date">Date</label>
+            <input type="date" name="date" required />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="./expensetracker.js"></script>
+  </body>
+</html>
