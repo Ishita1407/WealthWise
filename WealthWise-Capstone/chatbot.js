@@ -37,7 +37,7 @@ async function fetchChatbotResponse(userMessage) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'AIzaSyAd4rHilDy9m6sB32piPMqsnQB2VzQujHo', // Replace with your API key
+        'Authorization': 'API KEY', // Replace with your API key
       },
       body: JSON.stringify({ query: userMessage }),
     });
